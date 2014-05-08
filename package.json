@@ -1,0 +1,20 @@
+{
+    "name"       : "BandcampDownloader",
+    "version"    : "0.0.1",
+    "description": "Downloads from Bandcamp with ID3 tags",
+    "main"       : "server.js",
+    "scripts"    : {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository" : {
+        "type": "git",
+        "url" : "https://Watchieee@bitbucket.org/Watchieee/bandcamp-downloader.git"
+    },
+    "keywords"   : [
+        "id3.mp3",
+        "bandcamp",
+        "downloader"
+    ],
+    "author"     : "Danny Bell",
+    "license"    : "MIT"
+}

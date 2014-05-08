@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        title Bandcamp Downloader
+        link(rel='stylesheet', href='/public/style.css')
+    body
+        div(class='center')
+            h1 Bandcamp Downloader
+            ul(id="explain")
+                li Enter url
+                li Hit download
+                li Wait
+                li Check
+                    a(href="/files")  Files page
+
+                p URL MUST CONTAIN /album/
+
+            div(id="download")
+                form(action='/', method='POST')
+                    fieldset
+                        p
+                            label(for='bandcamp_url') Url
+                            input(type='text', name='bandcamp_url', value='http://', id='bandcamp_url')
+                        p(class='nolabel')
+                            input(type='submit', value='Download')
