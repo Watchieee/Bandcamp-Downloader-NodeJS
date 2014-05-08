@@ -4,6 +4,9 @@ var controller = require("./controllers/index.js");
 var bodyParser = require("body-parser");
 var serveIndex = require("serve-index");
 
+//allow 10 parallel downloads
+var http = require("http");
+http.globalAgent.maxSockets = 10;
 
 //express setup
 app.set('views', __dirname + '/views')
