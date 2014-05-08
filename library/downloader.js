@@ -3,7 +3,10 @@ var zip = require("node-native-zip-compression");
 var async = require("async");
 var request = require("request");
 var fs = require("fs");
-var ffmetadata = require("ffmetadata");
+var EyeD3 = require('eyed3');
+var eyed3 = new EyeD3({
+    eyed3_executable: 'eyeD3'
+});
 
 module.exports = {
     "parseLyrics"   : function (content) {
@@ -109,7 +112,7 @@ module.exports = {
         }
     },
     "editId3"       : function (path, data, next) {
-        ffmetadata.write(
+        eyed3.updateMeta(
             path,
             {
                 "artist": data.artist,

@@ -1,30 +1,30 @@
 {
-    "name"       : "BandcampDownloader",
-    "version"    : "0.0.1",
-    "description": "Downloads from Bandcamp with ID3 tags",
-    "main"       : "server.js",
-    "scripts"    : {
+    "name"        : "BandcampDownloader",
+    "version"     : "0.0.1",
+    "description" : "Downloads from Bandcamp with ID3 tags",
+    "main"        : "server.js",
+    "scripts"     : {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "repository" : {
+    "repository"  : {
         "type": "git",
         "url" : "https://Watchieee@bitbucket.org/Watchieee/bandcamp-downloader.git"
     },
-    "keywords"   : [
+    "keywords"    : [
         "id3.mp3",
         "bandcamp",
         "downloader"
     ],
-    "author"     : "Danny Bell",
-    "license"    : "MIT",
-    "dependencies" : {
-		"async":"0.8.0",
-		"node-native-zip-compression":"1.0.1",
-		"serve-index":"1.0.2",
-		"body-parser":"1.0.2",
-		"express":"4.1.1",
-		"ffmetadata":"1.0.2",
-		"request":"2.34.0",
-		"jade":"1.3.1"
+    "author"      : "Danny Bell",
+    "license"     : "MIT",
+    "dependencies": {
+        "async"                      : "0.8.0",
+        "node-native-zip-compression": "1.0.1",
+        "serve-index"                : "1.0.2",
+        "body-parser"                : "1.0.2",
+        "express"                    : "4.1.1",
+        "eyed3"                      : "Watchieee/node-eyed3#master",
+        "request"                    : "2.34.0",
+        "jade"                       : "1.3.1"
     }
 }
