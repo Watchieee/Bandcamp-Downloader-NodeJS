@@ -11,7 +11,7 @@ var eyed3 = new EyeD3({
 module.exports = {
     "parseLyrics"   : function (content) {
         var lyrics = {};
-        var RegexpSection = /<dd id="_lyrics_([0-9]+)">([\s\S]+)<\/dd>/g
+        var RegexpSection = /<dd id="_lyrics_([0-9]+)">([\s\S]+?)<\/dd>/g
         while (match = RegexpSection.exec(content)) {
             lyrics[match[1]] = match[2];
         }
