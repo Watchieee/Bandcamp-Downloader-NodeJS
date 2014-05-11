@@ -37,6 +37,9 @@ module.exports = {
                             if (filename.length > 200) {
                                 filename = filename.substr(0, 196) + ".mp3";
                             }
+
+                            filename = filename.replace("/", "");
+
                             module.exports.sendRequest(item.file["mp3-128"], filename, function (err, content) {
                                 var songData = {
                                     "artist": albumData.band.name,
