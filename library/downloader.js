@@ -38,7 +38,7 @@ module.exports = {
                                 filename = filename.substr(0, 196) + ".mp3";
                             }
 
-                            filename = filename.replace("/", "");
+                            filename = filename.replace(/\//g, "");
 
                             module.exports.sendRequest(item.file["mp3-128"], filename, function (err, content) {
                                 var songData = {
