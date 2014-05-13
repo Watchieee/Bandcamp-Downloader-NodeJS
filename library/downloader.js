@@ -95,10 +95,11 @@ module.exports = {
     },
     "parseAlbumPage": function (content, next) {
         var jsContent = content.toString().match(/(var\s*BandData\s*=\s*\{[^<]+?)if \( /i);
-        var objects = jsContent[1].split(";");
+        var objects = jsContent[1].split("};");
+
         return next(null, {
-            "band" : eval(objects[0].replace(/var([^;]+)/, "$1")),
-            "album": eval(objects[2].replace(/var([^;]+)/, "$1"))
+            "band" : eval((objects[0]+"};").replace(/var([\s\S]+?)\};/, "$1}")),
+            "album": eval((objects[2]+"};").replace(/var([\s\S]+?)\};/, "$1}"))
         });
     },
     "sendRequest"   : function (url, writeTo, next) {
