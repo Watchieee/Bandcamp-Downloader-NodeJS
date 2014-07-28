@@ -7,6 +7,7 @@ var EyeD3 = require('eyed3');
 var eyed3 = new EyeD3({
     eyed3_executable: 'eyeD3'
 });
+var he = require("he");
 
 module.exports = {
     "parseLyrics"   : function (content) {
@@ -122,7 +123,7 @@ module.exports = {
                 "artist": data.artist,
                 "title" : data.title,
                 "album" : data.album,
-                "lyrics": data.lyrics
+                "lyrics": he.decode(data.lyrics).replace(/[\s]{2,}/g, " ").replace(/<br[\s\/]*>/g, "\n").replace(/[\n\r]{2,}/g, "\n")
             },
             function (err) {
                 if (err) {
