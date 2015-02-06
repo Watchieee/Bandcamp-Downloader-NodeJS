@@ -100,7 +100,7 @@ module.exports = {
 
         return next(null, {
             "band" : eval((objects[0]+"};").replace(/var([\s\S]+?)\};/, "$1}")),
-            "album": eval((objects[2]+"};").replace(/var([\s\S]+?)\};/, "$1}"))
+            "album": eval((objects[3]+"};").replace(/var([\s\S]+?)\};/, "$1}"))
         });
     },
     "sendRequest"   : function (url, writeTo, next) {
