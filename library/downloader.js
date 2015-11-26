@@ -29,7 +29,8 @@ module.exports = {
                     function (item, callback) {
                         if (!item.file || item.file.length == 0) {
                             console.log("SKIPPED: " + JSON.stringify(item));
-                        } else {
+                        }
+                        else {
                             var lyricsKey = albumData.album.trackinfo.indexOf(item);
                             lyricsKey++;
                             var songLyrics = (lyricsKey && lyrics[lyricsKey]) ? lyrics[lyricsKey] : "";
@@ -40,8 +41,11 @@ module.exports = {
                             }
 
                             filename = filename.replace(/\//g, "");
-
-                            module.exports.sendRequest(item.file["mp3-128"], filename, function (err, content) {
+                            var rqUrl = item.file["mp3-128"];
+                            if (rqUrl.match(/^\/\//)) {
+                                rqUrl = "https:" + rqUrl;
+                            }
+                            module.exports.sendRequest(rqUrl, filename, function (err, content) {
                                 var songData = {
                                     "artist": albumData.band.name,
                                     "title" : item.title,
@@ -99,8 +103,8 @@ module.exports = {
         var objects = jsContent[1].split("};");
 
         return next(null, {
-            "band" : eval((objects[0]+"};").replace(/var([\s\S]+?)\};/, "$1}")),
-            "album": eval((objects[3]+"};").replace(/var([\s\S]+?)\};/, "$1}"))
+            "band" : eval((objects[0] + "};").replace(/var([\s\S]+?)\};/, "$1}")),
+            "album": eval((objects[3] + "};").replace(/var([\s\S]+?)\};/, "$1}"))
         });
     },
     "sendRequest"   : function (url, writeTo, next) {
@@ -110,7 +114,8 @@ module.exports = {
             pipe.on('finish', function () {
                 return next();
             });
-        } else {
+        }
+        else {
             return request(url, function (error, response, body) {
                 return next(error, body);
             });
